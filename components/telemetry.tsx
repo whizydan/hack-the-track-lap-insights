@@ -6,9 +6,14 @@ interface TelemetryChartProps {
 }
 
 export default function TelemetryChart({ data, telemetryKey }: TelemetryChartProps) {
+  const chartData = data.map((d) => ({
+    ...d,
+    [telemetryKey]: Number(d[telemetryKey]),
+  }));
+
   return (
     <ResponsiveContainer width="100%" height={300}>
-      <LineChart data={data}>
+      <LineChart data={chartData}>
         <XAxis dataKey="timestamp" hide />
         <YAxis />
         <Tooltip />
