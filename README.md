@@ -34,7 +34,7 @@ Plotted per-lap metrics, corner-specific stats, and gear/throttle patterns.
 
 # Actionable Insights:
 
-Implemented rules-based suggestions, e.g.:
+Implemented rules-based suggestions
 
 # Challenges Faced
 
