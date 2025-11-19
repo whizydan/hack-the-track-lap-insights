@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Inspiration
+As a software developer and data enthusiast, I’ve always been fascinated by how subtle differences in driver behavior can drastically affect race outcomes. While browsing the Toyota Gazoo Racing datasets for Hack the Track, I realized that raw telemetry contains a goldmine of insights, but it’s almost impossible for drivers and teams to interpret it quickly. I wanted to build something that transforms complex race data into clear guidance that even non technical users can understand.
 
-## Getting Started
+# What I Learned
 
-First, run the development server:
+This project taught me how to:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+ - Process large telemetry datasets containing variables like speed, throttle, brake pressure, andcoordinates.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ - Use interactive visualization tools to highlight performance differences per lap.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+ - Translate raw numbers into meaningful insights, such as braking efficiency and cornering performance.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# How I Built It
 
-## Learn More
+Data Processing:
 
-To learn more about Next.js, take a look at the following resources:
+Downsized the telemetry csv data.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Loaded the downsized CSV/JSON race telemetry data.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Computed lap-level statistics: total lap time, average speed, cornering efficiency, and throttle/brake consistency.
 
-## Deploy on Vercel
+**Cornering Efficiency per Lap**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Ec = Average speed in corners / Maximum achievable speed in corners
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+# Dashboard & Visualization:
+
+Built with NextJS + Chart.js for line charts, bar charts, and heatmaps.
+
+Plotted per-lap metrics, corner-specific stats, and gear/throttle patterns.
+
+# Actionable Insights:
+
+Implemented rules-based suggestions, e.g.:
+
+# Challenges Faced
+
+Data Complexity: The Telemetry datasets were huge and had many variables; parsing efficiently without lag required careful preprocessing.
+
+Scope Management: Initially, I wanted to implement predictive models for lap times, but that was intensive for a hackathon with short time.
+
+Visualization Clarity: Presenting multiple metrics (speed, brake, throttle, gear, GPS) in an intuitive way without overwhelming the user took multiple design iterations.
+
+# Outcome
+
+The MVP is a fully functional Race Lap Analyzer:
+
+Users can upload telemetry datasets and immediately see per-lap performance metrics.
+
+Interactive dashboards highlight strengths and weaknesses per driver.
+
+Actionable suggestions are provided to improve lap times.
+
+Even in this simplified form, Lap Insight transforms raw telemetry into usable insights, making it an effective tool for driver coaching and post-race analysis.
